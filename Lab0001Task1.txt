@@ -15,4 +15,4 @@ The download information can be found in the same directory.
 5. The text editor I use is notepad++ located in "C:\Program Files (x86)\Notepad++" 
 The download information can be found in"C:\Program Files (x86)\Notepad++\ readme'
 
-6. the text editor config files are located in C\Users\Steve\Appdata\Roaming\Notepad++\config
+6. The text editor config files are located in C\Users\Steve\Appdata\Roaming\Notepad++\config
