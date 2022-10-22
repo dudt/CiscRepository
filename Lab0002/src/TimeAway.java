@@ -1,6 +1,9 @@
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class TimeAway {
     public static LocalDate Lab1 = LocalDate.of(2022, 9, 28);
     public static LocalDate Lab2 = LocalDate.of(2022, 10, 28);
@@ -15,14 +18,31 @@ public class TimeAway {
     public static LocalDate mockDate;
     public static LocalDate[] dateList = {Lab1, Lab2, Lab3, Lab4, quiz1, quiz2, quiz3, quiz4, quiz5};
 
-    public static void printMenu()
+
+    public static void setUserDate(String uD)
     {
-        System.out.println("Hello user what would you like to do?");
-        System.out.println("1.View Saved Dates" );
-        System.out.println("2.Create your own Date? Please enter in the format of MM/DD/YYYY include slashes." );
-        System.out.println("3.Compare your date to another date? Input the number of the date you want to compare." );
-        System.out.println("4.Create your own Date?" );
+        String[] partOfDate = uD.split("/");
+        int month = Integer.parseInt(partOfDate[0]);
+        int day = Integer.parseInt(partOfDate[1]);
+        int year = Integer.parseInt(partOfDate[2]);
+        userDate = LocalDate.of(year, month, day);
+        System.out.println("Your date has been set as " +userDate);
     }
+    public static void setMockDate(String uD)
+    {
+        String[] partOfDate = uD.split("/");
+        int month = Integer.parseInt(partOfDate[0]);
+        int day = Integer.parseInt(partOfDate[1]);
+        int year = Integer.parseInt(partOfDate[2]);
+        mockDate = LocalDate.of(year, month, day);
+        System.out.println("Your mock date has been set as " + mockDate);
+    }
+
+    public static long daysBetweenDates(LocalDate a, LocalDate b)
+    {
+        return a.until(b, DAYS);
+    }
+
 
     public static void printDates()
     {
@@ -38,19 +58,14 @@ public class TimeAway {
             }
         }
     }
-    public static void setCustomDate(String uD)
+    public static void printMenu()
     {
-     String[] partOfDate = uD.split("/");
-     int month = Integer.parseInt(partOfDate[0]);
-     int day = Integer.parseInt(partOfDate[1]);
-     int year = Integer.parseInt(partOfDate[2]);
-     userDate = LocalDate.of(year, month, day);
+        System.out.println("Hello user what would you like to do?");
+        System.out.println("1.View Saved Dates" );
+        System.out.println("2.Create your own Date? Please enter in the format of MM/DD/YYYY include slashes." );
+        System.out.println("3.Compare your date to Saved Date?" );
+        System.out.println("3.Compare your date to a random date?" );
     }
-     public static int dateBetweenDates(LocalDate a, LocalDate b)
-     {
-         Period df1 = a.until(b);
-         return df1.getDays();
-     }
 
     public static void main(String[] args) {
 
@@ -60,7 +75,6 @@ public class TimeAway {
 
         while(input.hasNext())
         {
-
             int choice = input.nextInt();
             switch(choice)
             {
@@ -70,11 +84,24 @@ public class TimeAway {
                     break;
                 case 2:
                     String date = input.next();
-                    setCustomDate(date);
+                    setUserDate(date);
                     printMenu();
+                    break;
                 case 3:
-
+                    System.out.println("Input the number of the from Saved Dates you want to compare.");
+                    int sD = input.nextInt();
+                    if (userDate != null) {
+                        System.out.println("The amount of days between "+ userDate + " " + dateList[sD] + " is " + daysBetweenDates(userDate , dateList[sD]));
+                        printMenu();
+                        break;
+                    }
                 case 4:
+                    System.out.println("Set your mock date in the format MM/DD/YYYY");
+                    String mD = input.next();
+                    setMockDate(mD);
+                    System.out.println("The amount of days between your first date "+ userDate + " and your " + mockDate + " is " + daysBetweenDates(userDate ,mockDate));
+                    printMenu();
+                    break;
 
 
 
