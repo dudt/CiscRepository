@@ -5,18 +5,18 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class TimeAway {
     //Constant Saved Data
-    public static LocalDate Lab1 = LocalDate.of(2022, 9, 28);
-    public static LocalDate Lab2 = LocalDate.of(2022, 10, 28);
+    public static LocalDate Lab1 = LocalDate.of(2022, 9, 27);
+    public static LocalDate Lab2 = LocalDate.of(2022, 10, 26);
     public static LocalDate Lab3 = LocalDate.of(2022, 11, 23);
     public static LocalDate Lab4 = LocalDate.of(2022, 12, 7);
     public static LocalDate quiz1 = LocalDate.of(2022,9,9);
     public static LocalDate quiz2 = LocalDate.of(2022,9,28);
     public static LocalDate quiz3 = LocalDate.of(2022,10,26);
-    public static LocalDate quiz4 = LocalDate.of(2022,11,7);
+    public static LocalDate quiz4 = LocalDate.of(2022,11,11);
     public static LocalDate quiz5 = LocalDate.of(2022,12,7);
     public static LocalDate[] dateList = {Lab1, Lab2, Lab3, Lab4, quiz1, quiz2, quiz3, quiz4, quiz5};
     // Mutable Data
-    public static LocalDate userDate = LocalDate.of(1,1,1);
+    public static LocalDate userDate = LocalDate.now();
     public static LocalDate mockDate;
 
 

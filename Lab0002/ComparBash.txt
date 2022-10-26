@@ -1,0 +1,8 @@
+When it came to dealig with bash it was a lot more difficult than I was expecting to
+replicate the functionality of my java program. It required far more learning about syntax
+and how the terminal environment worked than I would have imagined. Habits I had developed from 
+programming in java had easily carried over to scripting and debugging became difficult due to seeing
+naturally seeing my java syntax as acceptable. It took me less lines of code in Bash to collect user
+input but navicgating java was much easier. Computing arithmetic was much more difficult because
+in java there are already APIs that make it possible for me to skip some of arithmatic heavy lifting.
+
